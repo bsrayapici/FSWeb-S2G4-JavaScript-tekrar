@@ -102,27 +102,73 @@ let ucetambolunenler,
 
 // 3a çözümü
 
-/* kodlar buraya */
+function enKucukBuyuk(enkucuk, enbuyuk) {
+  for (let i = 0; i < sayilar.length ; i++) {
+    if (enkucuk[i] > sayilar[i]) {
+
+      enkucuk = sayilar[i]; 
+
+    } else if (enbuyuk[i] < sayilar[i]) {
+      enbuyuk = sayilar[i];
+    }
+   
+  } 
+  return { enkucuk, enbuyuk}
+}
 
 // 3b çözümü:
 
-/* kodlar buraya */
+function uceBolunenlerr () {
+ 
+  let ucetambolunenler = [];
+
+  sayilar.forEach(element => {
+
+    if (element%3 == 0) {
+      ucetambolunenler.push(element) ;
+    }
+
+    return ucetambolunenler;
+    
+  });
+
+
+}
 
 // 3c çözümü:
 
-/* kodlar buraya */
+const ucebolunenler = uceBolunenlerr(sayilar);
+const ucebolunenlerintoplami = ucebolunenler.reduce((toplam,eleman) => toplam + eleman, 0);
+console.log("3'e bölünenlerin toplamı:", ucebolunenlerintoplami);
 
 // 3d çözümü
 
-/* kodlar buraya */
+const besyuzdenkucuksayilar = sayilar.filter(sayi => sayi < 500);
+console.log(besyuzdenkucuksayilar);// [450, 300, 200]
 
 // 3e çözümü
 
-/* kodlar buraya */
-
+const siralisayilar = besyuzdenkucuksayilar.sort(a,b => a-b);
 // 3f çözümü
+const tekraredensayilar = [];
 
-/* kodlar buraya */
+// Tekrar sayısını tutmak için bir nesne
+const tekrarSayilari = {};
+
+// 1. Döngü: Sayıların tekrar sayısını hesapla
+for (let i = 0; i < sayilar.length; i++) {
+  tekrarSayilari[sayilar[i]] = tekrarSayilari[sayilar[i]] 
+    ? tekrarSayilari[sayilar[i]] + 1 
+    : 1; 
+
+// 2. Döngü: Tekrar eden sayılar için string oluştur ve aktar
+for (let sayi in tekrarSayilari) {
+  tekrarSayilari[sayi] > 1 
+    ? tekraredensayilar.push(`${sayi} sayısı ${tekrarSayilari[sayi]} kere tekrar edilmiştir`) 
+    : null;
+}
+
+console.log(tekraredensayilar);
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
